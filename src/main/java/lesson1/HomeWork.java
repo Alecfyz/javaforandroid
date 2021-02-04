@@ -51,6 +51,7 @@ public class HomeWork {
         checkIfBissextile(frstDate);
         checkIfBissextile(secDate);
         checkIfBissextile(calendar.get(Calendar.YEAR));
+        checkIfBissextile(1900);
 
         System.out.println("\n=-=\nИтс э файнал [countdown].");
 
@@ -76,9 +77,7 @@ public class HomeWork {
 
     private static boolean checkIfDiap(int a, int b) {
         int sum = a + b;
-        if (sum >= 10 & sum <= 20){
-            return true;
-        } else return false;
+        return sum >= 10 & sum <= 20;
     }
 
     private static void checkIfPositive(double a) {
@@ -104,11 +103,12 @@ public class HomeWork {
     private static void checkIfBissextile(int argDate) {
         double get100 = argDate % 100;
         double get400 = argDate % 400;
-        double get4 = argDate % 4;
+        double get4 = argDate % 4;      //  эти 3 переменные избыточны в данном случае, понимаю.
 //        System.out.println("get100 = " + get100 + "\nget400 = " +get400);
         boolean res = false;                                // год НЕ високосный
 
-
+        if ((get4 == 0 & !(get100 == 0)) || get400 == 0) res = true;
+/*
         if (get4 == 0 ) {
             res = true;                             // да, значит , високосный
 //            System.out.println("Год " + argDate + " Это 4й год, он високосный.");
@@ -125,7 +125,7 @@ public class HomeWork {
 
             }
         }
-
+*/
             String result;
         if (res) result = "это високосный год"; else result = "обычный, не високосный год";
         System.out.println(argDate + " год - "+ result);
