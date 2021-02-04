@@ -6,7 +6,8 @@ public class MainLesson {
 //            testvars();
 //        sumVar(3, 55);
 //        calculateSalary();
-        testCheckAppraisal();
+        //testCheckAppraisal();
+        HomeWork.main();
     }
 
 
