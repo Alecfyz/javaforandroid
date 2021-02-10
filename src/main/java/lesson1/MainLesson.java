@@ -2,12 +2,9 @@ package lesson1;
 
 public class MainLesson {
     public static void main(String[] args) {
-//        System.out.println("YOOOHOOO!");
-//            testvars();
-//        sumVar(3, 55);
-//        calculateSalary();
-        //testCheckAppraisal();
-        HomeWork.main();
+
+        //HomeWork.main();
+        lesson2.HomeWork2.main();
     }
 
 

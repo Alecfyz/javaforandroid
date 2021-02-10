@@ -16,6 +16,7 @@ public class HomeWork {
         String strVar = "Это строчная переменная";
         boolean bolVar = true;
 
+
         System.out.println("Это первое домашнее задание по основам Java.\n-=-=-=-=-=-=-=-");
 
         printAllVars(STR_CONST, intVar, dVar, fVar, chVar, chVar2, strVar, bolVar);
@@ -58,7 +59,8 @@ public class HomeWork {
     }
 
 
-
+    private static void assas() {
+    }
 
     private static void printAllVars(String var1, int var2, double var3, float var4, char var5, char var6, String var7, boolean var8){
         System.out.println(var1);
