@@ -8,13 +8,14 @@ public class HomeWork2 {
         int arrCols = 14;
         int arrRows = 5;
 
-        manipulateWithArray1(arrRows, arrCols); // Task #1
-        Task2.main();
-        Task3.main();
-        Task4.main();
-        Task5.main(new int[]{arrCols});
-        Task6.main(new int[]{arrCols});
-        Task7.main();
+//        manipulateWithArray1(arrRows, arrCols); // Task #1
+//        Task2.main();
+//        Task3.main();
+//        Task4.main();
+//        Task5.main(new int[]{arrCols});
+//        Task6.main(new int[]{arrCols});
+//        Task7.main();
+        Task4rev2.showDiag();
     }
 
     private static void manipulateWithArray1(int xLen, int yLen) {
