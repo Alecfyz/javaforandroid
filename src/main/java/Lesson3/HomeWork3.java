@@ -21,7 +21,7 @@ public class HomeWork3 {
                 matched = true;
                 break;
             } else {
-                System.out.println("Нет, продолжаем");
+                System.out.println("Нет, господин, продолжаем");
                 showCompareWords(word, userword);
             }
         }
