@@ -3,6 +3,9 @@ package Lesson3;
 import java.util.Scanner;
 
 public class HomeWork3 {
+
+    static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         String[] words = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot", "cherry", "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"};
         String word = words[GetRandomEl(words)];
@@ -30,10 +33,7 @@ public class HomeWork3 {
     }
 
     private static String getUserWord() {
-        Scanner scanner = new Scanner(System.in);
-        String s1 = scanner.nextLine();
-//        scanner.close();
-        return s1;
+        return scanner.nextLine();
     }
 
     private static void showCompareWords(String word, String userword) {
