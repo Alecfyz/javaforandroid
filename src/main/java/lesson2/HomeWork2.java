@@ -27,7 +27,7 @@ public class HomeWork2 {
                     int rows = myArr.length;
                     int  columns = myArr[0].length;
                     for (int row = 0; row < rows; row++) {
-                        for( int col = 0; col < columns; col++){
+                        for( int col = 0; col < columns; col++){    
                             short curVal = myArr[row][col];
                             myArr[row][col] = (short) (curVal == 1 ? 0 : 1);
                         }
