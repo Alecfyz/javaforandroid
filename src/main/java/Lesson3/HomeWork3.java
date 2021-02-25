@@ -44,10 +44,8 @@ public class HomeWork3 {
             if (masked.charAt(i) == word.charAt(i))
             {
                 workmask += masked.charAt(i);
-//                System.out.println("!!!! " + word.charAt(i)  + " !!!!!!");
                 guessed++;
             } else if (word.charAt(i) == userword.charAt(i)) {
-
                 workmask += word.charAt(i);
                 guessed++;
             } else workmask +="#";
@@ -61,5 +59,4 @@ public class HomeWork3 {
         for (int j = maxLen; j < 15; j++) { masked += "#"; }
         System.out.printf("Всего вы угадали %d букв(ы) из этого слова %n и вот эти буквы: %s%nПопробуй еще раз, светлейший!%n", guessed, masked);
     }
-
 }
