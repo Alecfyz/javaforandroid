@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
-    static final int SIZE = 3;
+    static final int SIZE = 5;
+    static int winLineLen = 3;
 
     static final char DOT_EMPTY = '•';
     static final char DOT_HUMAN = 'X';
@@ -20,7 +21,6 @@ public class TicTacToe {
 
     static int turnsCount;
 
-    static int winLineLen = 2;
 
     public static void main(String[] args) {
         turnGame();
@@ -56,6 +56,7 @@ public class TicTacToe {
     }
 
     private static void printHeaderMap() {
+        System.out.println("Выигрышная линия = " + winLineLen);
         System.out.print(HEADER_FIRST_SYMBOL + EMPTY);
         for (int i = 0; i < SIZE; i++) {
             printMapNumber(i);
@@ -183,24 +184,71 @@ public class TicTacToe {
         return checkWinDiagDownsteirs(symbol) || checkWinDiagUpsteirs(symbol);
     }
 
-    private static boolean checkWinDiagDownsteirs(char symbol) {
+    private static boolean oldcheckWinDiagDownsteirs(char symbol) {
         int curWinLen = 0;
         for (int i = 0; i < SIZE; i++) { //строки
-                if(MAP[i][i] == symbol) {
-                    curWinLen++;
-                    if (curWinLen == winLineLen) return true;
-                } else curWinLen = 0;
+            if(MAP[i][i] == symbol) {
+                curWinLen++;
+                if (curWinLen == winLineLen) return true;
+            } else curWinLen = 0;
         }
         return false;
     }
 
-    private static boolean checkWinDiagUpsteirs(char symbol) {
-        int curWinLen = 0;
-        for (int i = 0; i < SIZE; i++) { //строки
-            if(MAP[i][SIZE-i-1] == symbol) {
-                curWinLen++;
-                if (curWinLen == winLineLen) return true;
-            } else curWinLen = 0;
+    private static boolean checkWinDiagDownsteirs(char symbol) { // нисходящие диагонали
+        for (int i = 0; i <= SIZE-winLineLen+1; i++) { //rows
+            int curWinLen = 0;
+            for (int row = i, colm = 0; row <= SIZE-winLineLen+1; row++, colm++) {
+                if (MAP[row][colm] == symbol) {
+                    curWinLen++;
+                    if (curWinLen == winLineLen) {
+                        System.out.println("Есть попадание Downsteirs1!");
+                        return true;
+                    }
+                } else curWinLen = 0;
+            }
+        } // дошли от второстепенных диагоналей до длинной средней нисходящей диагонали
+        int iii = SIZE-winLineLen-1;
+        for (int i = 0; i <= iii; i++) { //rows
+            int curWinLen = 0;
+            for (int row = 0, colm = i+1; colm <= SIZE-1; row++, colm++) {
+                if (MAP[row][colm] == symbol) {
+                    curWinLen++;
+                    if (curWinLen == winLineLen) {
+                        System.out.println("Есть попадание Downsteirs2!");
+                        return true;
+                    }
+                } else curWinLen = 0;
+            }
+        }
+        return false;
+    }
+
+        private static boolean checkWinDiagUpsteirs(char symbol) { // восходящие диагонали
+        for (int i = winLineLen-1; i < SIZE; i++) { //columns
+            int curWinLen = 0;
+            for (int row = i, colm = 0; row >= 0; row--, colm++) {
+                if(MAP[row][colm] == symbol) {
+                    curWinLen++;
+                    if (curWinLen == winLineLen) {
+                        System.out.println("Есть попадание!");
+                        return true;
+                    }
+                } else curWinLen = 0;
+            }
+        } // дошли слева сверху до самой длинной восходящей диагонали и пошли по восходящим второстепенным диагоналям
+
+        for (int i = 1; i <= SIZE-winLineLen; i++){
+            int curWinLen = 0;
+            for (int row = SIZE-1, colm = i; colm < SIZE; row--, colm++) {
+                if(MAP[row][colm] == symbol) {
+                    curWinLen++;
+                    if (curWinLen == winLineLen) {
+                        System.out.println("Есть попадание2!");
+                        return true;
+                    }
+                } else curWinLen = 0;
+            }
         }
         return false;
     }
