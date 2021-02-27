@@ -184,21 +184,10 @@ public class TicTacToe {
         return checkWinDiagDownsteirs(symbol) || checkWinDiagUpsteirs(symbol);
     }
 
-    private static boolean oldcheckWinDiagDownsteirs(char symbol) {
-        int curWinLen = 0;
-        for (int i = 0; i < SIZE; i++) { //строки
-            if(MAP[i][i] == symbol) {
-                curWinLen++;
-                if (curWinLen == winLineLen) return true;
-            } else curWinLen = 0;
-        }
-        return false;
-    }
-
     private static boolean checkWinDiagDownsteirs(char symbol) { // нисходящие диагонали
         for (int i = 0; i <= SIZE-winLineLen+1; i++) { //rows
             int curWinLen = 0;
-            for (int row = i, colm = 0; row <= SIZE-winLineLen+1; row++, colm++) {
+            for (int row = i, colm = 0; row <= SIZE-1; row++, colm++) {
                 if (MAP[row][colm] == symbol) {
                     curWinLen++;
                     if (curWinLen == winLineLen) {
@@ -224,7 +213,7 @@ public class TicTacToe {
         return false;
     }
 
-        private static boolean checkWinDiagUpsteirs(char symbol) { // восходящие диагонали
+    private static boolean checkWinDiagUpsteirs(char symbol) { // восходящие диагонали
         for (int i = winLineLen-1; i < SIZE; i++) { //columns
             int curWinLen = 0;
             for (int row = i, colm = 0; row >= 0; row--, colm++) {
