@@ -27,15 +27,21 @@ public class Employee {
         System.out.printf("Офисный раб добавлен. Имя: %s(%sл), всего рабов: %d%n", Fullname, age, ++empCount);
     }
     public Employee(String firstname, String secname, String surname, int age) {
+        this(firstname, secname, surname, age, "", "@", "+7", 0);
         this.Fullname = getFullName(firstname, secname, surname);
-        this.age = age;
+        //this.age = age;
         setPosition();
         setCellNumber();
         setEmail();
         setSalary();
     }
 
-
+/*    public Employee(String firstname, String secname, String surname, int age) {
+        this(firstname, secname, surname, age, setPosition(), setEmail());
+//        setEmail();
+        setCellNumber();
+        setSalary();
+    }*/
 
     private String getFullName(String firstname, String secname, String surname){
         return doCapitalize(firstname) + " " + doCapitalize(secname) + " " + doCapitalize(surname);

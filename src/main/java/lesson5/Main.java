@@ -13,13 +13,16 @@ Employee[] empsAr = new Employee[6];
         empsAr[2] = new Employee("ИВАН", "ПЕТРОВИЧ", "ЗЮЗЬ", getRandAge());
         empsAr[3] = new Employee("Доздраперма", "Иосифовна", "Влавлапут", getRandAge());
         empsAr[4] = new Employee("Си", "Лунь", "По", getRandAge());
-        empsAr[5] = new Employee("ГадЯ", "ПетровиЯ", "ХреновА", getRandAge());
-
+        empsAr[5] = new Employee("ГадЯ", "ПетровиЧ", "ХреновА", getRandAge());
+        System.out.printf("---%n");
 
 int over40 = 0;
         for (int i = 0; i < empsAr.length; i++) {
-            empsAr[i].printInfo();
-            if (empsAr[i].getAge() > 40) over40++;
+
+            if (empsAr[i].getAge() > 40) {
+                over40++;
+                empsAr[i].printInfo();
+            }
         }
 
         System.out.printf("Старичков возрастом свыше 40: " + over40);
