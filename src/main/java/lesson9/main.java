@@ -26,7 +26,11 @@ public class main {
         int curInt;
         String errPoints = "";
 
-       checkArr(ar);
+        try {
+            checkArr(ar);
+        } catch (MyArraySizeException e) {
+            System.err.println(e.toString());
+        }
 //            throw new MyArraySizeException(ar.length);
 
         for (int i = 0; i < ar.length; i++) {
@@ -37,10 +41,6 @@ public class main {
                 } catch (MyArrayDataException e1) {
                     System.err.println(e1);
 
-                } catch (MyArraySizeException e2) {
-                    System.err.println(e2.getMessage());
-
-                    continue;
                 }
                 holeSumm += curInt;
 

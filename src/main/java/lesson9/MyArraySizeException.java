@@ -1,6 +1,6 @@
 package lesson9;
 
-public class MyArraySizeException extends IllegalArgumentException  {
+public class MyArraySizeException extends Exception  {
     static int size;
     public MyArraySizeException(int s) {
         size = s;
