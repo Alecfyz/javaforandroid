@@ -15,9 +15,6 @@ public class main {
 
         summ = workWithArray(myArr);
         System.out.printf("Результат: сумма всех численных элементов массива = %d%n", summ);
-//            System.err.printf("%n=-=-=%n%s%n=-=-=%n", e);
-
-
     }
 
 
@@ -29,9 +26,8 @@ public class main {
         try {
             checkArr(ar);
         } catch (MyArraySizeException e) {
-            System.err.println(e.toString());
+            System.err.printf("%n=-=-=%n%s%n=-=-=%n", e.toString());
         }
-//            throw new MyArraySizeException(ar.length);
 
         for (int i = 0; i < ar.length; i++) {
             for (int j = 0; j < ar.length; j++) {
@@ -40,16 +36,14 @@ public class main {
                     curInt = getInt(ar[i][j], i, j);
                 } catch (MyArrayDataException e1) {
                     System.err.println(e1);
-
                 }
                 holeSumm += curInt;
-
             }
         }
         return holeSumm;
     }
 
-    private static void checkArr(String[][] ar) throws MyArraySizeException{
+    private static void checkArr(String[][] ar) throws MyArraySizeException {
         if (ar.length > 4)
             throw new MyArraySizeException(ar.length);
     }
