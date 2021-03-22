@@ -7,53 +7,61 @@ public class main {
     private static String[][] myArr;
     private static String[] srcArr = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "$", "&", "@", "*", "dsa", " "}; // source array
     static final Random random = new Random();
-    static final int SIZE = 6; // array side
+    static final int SIZE = 5; // array side
 
     public static void main(String[] args) {
+        int summ = 0;
         myArr = generateSquadArray();
 
-        int summ = workWithArray(myArr);
+        summ = workWithArray(myArr);
+        System.out.printf("Результат: сумма всех численных элементов массива = %d%n", summ);
+//            System.err.printf("%n=-=-=%n%s%n=-=-=%n", e);
 
-        System.out.printf("Результат: сумма всех численных элементов массива = %d", summ);
+
     }
+
 
     private static int workWithArray(String[][] ar) {
         int holeSumm = 0;
-        try {
-            if (ar.length > 4)
-                throw new MyArraySizeException();
-        } catch (MyArraySizeException e) {
-            System.out.printf("%n=-=-=%n%s%n=-=-=%n", e);
-        }
-        finally {
-            System.out.printf("%nРазмерность массива: %dх%d.%n==============%n", ar.length, ar[0].length);
-        }
+        int curInt;
+        String errPoints = "";
+
+       checkArr(ar);
+//            throw new MyArraySizeException(ar.length);
 
         for (int i = 0; i < ar.length; i++) {
             for (int j = 0; j < ar.length; j++) {
+                curInt = 0;
                 try {
-                    if (!isNumeric(ar[i][j]))
-                        throw new MyArrayDataException("string " + ar[i][j] + " at position " + i + "," + j);
-
-                    holeSumm += Integer.parseInt(ar[i][j]);
-
+                    curInt = getInt(ar[i][j], i, j);
                 } catch (MyArrayDataException e1) {
-                    System.out.println(e1.toString());
+                    System.err.println(e1);
 
+                } catch (MyArraySizeException e2) {
+                    System.err.println(e2.getMessage());
+
+                    continue;
                 }
+                holeSumm += curInt;
 
             }
         }
         return holeSumm;
     }
 
-    private static boolean isNumeric(String s) {
+    private static void checkArr(String[][] ar) throws MyArraySizeException{
+        if (ar.length > 4)
+            throw new MyArraySizeException(ar.length);
+    }
+
+    private static int getInt(String subj, int i, int j) throws MyArrayDataException {
+        int curint = 0;
         try {
-            Integer.parseInt(s);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
+            curint = Integer.parseInt(String.valueOf(subj));
+        } catch (NumberFormatException e1) {
+            throw new MyArrayDataException("строка '" + subj + "' в  позиции " + i + "," + j);
         }
+        return curint;
     }
 
     private static String[][] generateSquadArray() {
@@ -65,9 +73,8 @@ public class main {
             }
             System.out.printf("%n");
         }
-
         return myArr;
     }
 
-
 }
+

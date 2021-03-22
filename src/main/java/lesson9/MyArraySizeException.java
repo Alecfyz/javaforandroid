@@ -1,11 +1,12 @@
 package lesson9;
 
-public class MyArraySizeException extends IndexOutOfBoundsException {
-    public MyArraySizeException() {
-//        System.out.println("in ScrayException: " );
+public class MyArraySizeException extends IllegalArgumentException  {
+    static int size;
+    public MyArraySizeException(int s) {
+        size = s;
     }
 
     public String toString() {
-        return "                              Exception! Each side of array is not eq. 4!";
+        return "                              Exception! Each side of array is _" + size + "_ and it not eq. 4!";
     }
 }

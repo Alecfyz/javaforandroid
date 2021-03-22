@@ -1,10 +1,10 @@
 package lesson9;
 
-public class MyArrayDataException extends Exception {
-    String msg;
+public class MyArrayDataException extends NumberFormatException {
+    static String msg;
 
-    public MyArrayDataException(String position) {
-        msg = "in MyArrayDataException Exception (NumberFormatException): Illegal " + position;
+    public MyArrayDataException(String details) {
+        msg = "Исключение (NumberFormatException): недопустимая " + details;
     }
 
     public String toString() {
