@@ -44,7 +44,6 @@ public class Main {
                 } catch (NumberFormatException e1) {
                     curInt = 0;
                     throw new MyArrayDataException("строка '" + ar[i][j] + "' в позиции " + i + "," + j);
-
                 }
                 holeSumm += curInt;
             }
@@ -60,7 +59,6 @@ public class Main {
             }
         }
         Arrays.stream(myArr).map(Arrays::toString).forEach(System.out::println);
-
         return myArr;
     }
 
