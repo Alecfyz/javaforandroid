@@ -1,4 +1,4 @@
-package lesson9;
+package lesson9.homework;
 
 public class MyArrayDataException extends NumberFormatException {
     static String msg;

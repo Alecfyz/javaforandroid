@@ -1,4 +1,4 @@
-package lesson9;
+package lesson9.homework;
 
 public class MyArraySizeException extends Exception  {
     static int size;
@@ -7,6 +7,6 @@ public class MyArraySizeException extends Exception  {
     }
 
     public String toString() {
-        return "                              Exception! Each side of array is _" + size + "_ and it not eq. 4!";
+        return "                              Exception! Side of square array is _" + size + "_ and it is not eq. 4!";
     }
 }

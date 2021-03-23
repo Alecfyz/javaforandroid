@@ -1,39 +1,33 @@
-package lesson9;
+package lesson9.homework;
 
-import java.lang.reflect.Array;
 import java.util.Random;
 
-public class main {
+public class Main {
     private static String[][] myArr;
     private static String[] srcArr = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "$", "&", "@", "*", "dsa", " "}; // source array
     static final Random random = new Random();
-    static final int SIZE = 5; // array side
+    static final int SIZE = 6; // array side
 
     public static void main(String[] args) {
-        int summ = 0;
-        myArr = generateSquadArray();
+        int summ;
+        myArr = generateSquareArray();
 
         summ = workWithArray(myArr);
         System.out.printf("Результат: сумма всех численных элементов массива = %d%n", summ);
     }
 
-
     private static int workWithArray(String[][] ar) {
         int holeSumm = 0;
         int curInt;
-        String errPoints = "";
-
-        try {
-            checkArr(ar);
-        } catch (MyArraySizeException e) {
-            System.err.printf("%n=-=-=%n%s%n=-=-=%n", e.toString());
-        }
 
         for (int i = 0; i < ar.length; i++) {
             for (int j = 0; j < ar.length; j++) {
                 curInt = 0;
                 try {
-                    curInt = getInt(ar[i][j], i, j);
+                    curInt = getNextInt(ar[i][j], i, j);
+                } catch (MyArraySizeException e2) {
+                    System.err.println(e2);
+                    break;
                 } catch (MyArrayDataException e1) {
                     System.err.println(e1);
                 }
@@ -43,22 +37,21 @@ public class main {
         return holeSumm;
     }
 
-    private static void checkArr(String[][] ar) throws MyArraySizeException {
-        if (ar.length > 4)
-            throw new MyArraySizeException(ar.length);
-    }
+    private static int getNextInt(String str, int row, int col) throws MyArraySizeException, MyArrayDataException {
+        if (row > 4)
+            throw new MyArraySizeException(row);
 
-    private static int getInt(String subj, int i, int j) throws MyArrayDataException {
-        int curint = 0;
+        int curint;
         try {
-            curint = Integer.parseInt(String.valueOf(subj));
+            curint = Integer.parseInt(String.valueOf(str));
         } catch (NumberFormatException e1) {
-            throw new MyArrayDataException("строка '" + subj + "' в  позиции " + i + "," + j);
+            curint = 0;
+            throw new MyArrayDataException("строка '" + str + "' в позиции " + row + "," + col);
         }
         return curint;
     }
 
-    private static String[][] generateSquadArray() {
+    private static String[][] generateSquareArray() {
         myArr = new String[SIZE][SIZE];
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {

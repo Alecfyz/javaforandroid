@@ -1,13 +1,12 @@
-package lesson9;
+package lesson9.homework;
 
-import java.lang.reflect.Array;
 import java.util.Random;
 
 public class testmain2 {
     private static String[][] myArr;
     private static String[] srcArr = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "$", "&", "@", "*", "dsa", " "}; // source array
     static final Random random = new Random();
-    static final int SIZE = 6; // array side
+    static final int SIZE = 4; // array side
 
     public static void main(String[] args) {
         int summ = 0;
@@ -16,7 +15,7 @@ public class testmain2 {
             summ = workWithArray(myArr);
         }
         catch (MyArraySizeException e){
-            System.out.printf("%n=-=-=%n%s%n=-=-=%n", e);
+            System.err.printf("%n=-=-=%n%s%n=-=-=%n", e.toString());
         }
         System.out.printf("Результат: сумма всех численных элементов массива = %d", summ);
     }
@@ -25,7 +24,7 @@ public class testmain2 {
         int holeSumm = 0;
 
         if (ar.length > 4)
-            throw new MyArraySizeException();
+            throw new MyArraySizeException(ar.length);
 
 
 
