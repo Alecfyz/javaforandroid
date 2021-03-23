@@ -27,7 +27,7 @@ public class Main {
                     curInt = getNextInt(ar[i][j], i, j);
                 } catch (MyArraySizeException e2) {
                     System.err.println(e2);
-                    continue; // элементы сверх лимита (4) не считаем
+                    break; // элементы сверх лимита (4) не считаем
                 } catch (MyArrayDataException e1) {
                     System.err.println(e1);
                 }
