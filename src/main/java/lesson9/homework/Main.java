@@ -1,5 +1,7 @@
 package lesson9.homework;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Main {
@@ -10,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         int summ;
-        myArr = generateSquareArray();
+        myArr = generateSquareArray(false);
 
         summ = workWithArray(myArr);
         System.out.printf("Результат: сумма всех численных элементов массива = %d%n", summ);
@@ -38,7 +40,7 @@ public class Main {
     }
 
     private static int getNextInt(String str, int row, int col) throws MyArraySizeException, MyArrayDataException {
-        if (row > SIZE-1)
+        if (col > 4)
             throw new MyArraySizeException(row);
 
         int curint;
@@ -51,15 +53,30 @@ public class Main {
         return curint;
     }
 
-    private static String[][] generateSquareArray() {
+    private static String[][] generateSquareArray(boolean test) {
+        if (test) {
+            String[][] myArr = {
+                    {"3", "3", "3", "@", "4", "0"},
+                    {"3", "$", "&", "4", "dsa", "2"},
+                    {"$", "0", "3", "5", " ", "0"},
+                    {"8", "0", "4", "2", "&", " "},
+                    {"1", "$", "2", "5", "8", "9"},
+                    {"@", "9", "5", "9", "1", "3"}
+            };
+            Arrays.stream(myArr).map(Arrays::toString).forEach(System.out::println);
+            return myArr;
+        }
+
         myArr = new String[SIZE][SIZE];
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
                 myArr[i][j] = srcArr[random.nextInt(srcArr.length)];
-                System.out.printf("%s", myArr[i][j]);
+//                System.out.printf("\"%s\",", myArr[i][j]);
             }
-            System.out.printf("%n");
+//            System.out.printf("%n");
         }
+        Arrays.stream(myArr).map(Arrays::toString).forEach(System.out::println);
+
         return myArr;
     }
 
