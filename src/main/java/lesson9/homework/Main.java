@@ -24,7 +24,6 @@ public class Main {
         } catch (MyArrayDataException e) {
             System.out.println(e.toString());
         }
-
     }
 
     private static int workWithArray(String[][] ar) throws MyArraySizeException, MyArrayDataException {
