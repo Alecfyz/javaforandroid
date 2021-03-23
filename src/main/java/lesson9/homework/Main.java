@@ -27,7 +27,7 @@ public class Main {
                     curInt = getNextInt(ar[i][j], i, j);
                 } catch (MyArraySizeException e2) {
                     System.err.println(e2);
-                    break; // элементы сверх лимита (4) не считаем
+                    continue; // элементы сверх лимита (4) не считаем
                 } catch (MyArrayDataException e1) {
                     System.err.println(e1);
                 }
@@ -38,7 +38,7 @@ public class Main {
     }
 
     private static int getNextInt(String str, int row, int col) throws MyArraySizeException, MyArrayDataException {
-        if (row > 4)
+        if (row > SIZE-1)
             throw new MyArraySizeException(row);
 
         int curint;
