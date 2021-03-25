@@ -4,26 +4,14 @@ import java.text.MessageFormat;
 import java.util.*;
 
 public class Phonebook {
-    protected String phnumber;
     protected String name;
-    HashMap<String, String> book;
     HashMap<String, Set<String>> phbook;
 
     public Phonebook() {
-        book = new HashMap<>();
         phbook = new HashMap<>();
     }
 
-    public boolean add(String name, String phnumber) {
-        if (name.trim().length() > 2 && phnumber.trim().length() > 3) { // 3 - миннимальное количество знаков в номере телефона. От фонаря; 2 - минимальная длина имени
-            book.put(name, phnumber);
-        } else {
-            return false;
-        }
-        return true;
-    }
-
-    public boolean add2(String name, String num) {
+    public boolean add(String name, String num) {
         Set<String> nums;
         if (phbook.containsKey(name)) { // entry present
             nums = phbook.get(name);
