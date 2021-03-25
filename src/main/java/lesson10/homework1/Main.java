@@ -1,5 +1,7 @@
 package lesson10.homework1;
 
+import com.sun.java.accessibility.util.AccessibilityListenerList;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.MessageFormat;
@@ -13,6 +15,8 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+//        System.out.println("\n" + );
 
         HashSet<String> uniq = new HashSet(AllWords); // unique words in "uniq"
         System.out.printf("\n === Всего уникальных слов: %d ===\n\n", uniq.size());
@@ -28,10 +32,10 @@ public class Main {
             }
         }
 
-        Map<Integer, String> treemap = new TreeMap<>(Collections.reverseOrder());
+        Map<Integer, String> treemap = new TreeMap<>(Collections.reverseOrder()); // мапа для сортировки
 
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            treemap.put(entry.getValue(), entry.getKey());
+            treemap.put(entry.getValue(), entry.getKey()); // поменяем ключ и значение местами в новой мапе
         }
 
         System.out.println("--===== Топ-20 повторяющихся ====--");
@@ -40,10 +44,7 @@ public class Main {
             if (i > 20) break;
             System.out.println(MessageFormat.format("слово \"{0}\", повторяется {1} раз", entry.getValue(), entry.getKey()));
             i++;
-
         }
-
-
     }
 
 

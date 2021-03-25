@@ -9,8 +9,8 @@ public class Main {
     public static void main(String[] args) {
 //        testArrayList();
 //        testArrayLinkedList();
-//        testSet();
-        testMap();
+        testSet();
+//        testMap();
     }
 
     private static void testArrayList() {
@@ -38,7 +38,7 @@ public class Main {
     }
 
     private static void testArrayLinkedList() {
-        LinkedList<String> linkedList = new LinkedList<>();
+        ArrayList<String> linkedList = new ArrayList<>();
 
         linkedList.add("B");
         linkedList.add("D");
@@ -47,7 +47,7 @@ public class Main {
         linkedList.set(0, "C");
 
         Collections.sort(linkedList);
-
+        System.out.println("-----------------------");
         System.out.println(linkedList);
         System.out.println(linkedList.get(1));
 
@@ -57,9 +57,16 @@ public class Main {
         Set<Integer> set = new TreeSet<>();
         Random random = new Random();
 
-        for (int i = 0; i < 1000; i++) {
-            set.add(random.nextInt(20));
-        }
+/*        for (int i = 0; i < 1000; i++) {
+            set.add(random.nextInt(30));
+        }*/
+
+        set.add(3);
+        set.add(2);
+        set.add(3);
+        set.add(5);
+
+
 
 /*        Iterator iterator = set.iterator();
         while (iterator.hasNext()) {
@@ -71,7 +78,7 @@ public class Main {
             System.out.println("Число: " + n);
         }
 
-//        System.out.println(set);
+        System.out.println(set);
     }
 
     private static void testMap() {
@@ -80,6 +87,7 @@ public class Main {
         map.put("Russia", "Moscow");
         map.put("France", "Paris");
         map.put("Germany", "Berlin");
+        map.put("Norway", "Oslo");
         map.put("Norway", "Oslo");
 
 /*        for (Map.Entry<String, String> entry : map.entrySet()) {
