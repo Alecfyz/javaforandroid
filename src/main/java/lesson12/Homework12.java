@@ -43,10 +43,10 @@ public class Homework12 {
     }
 
     public static void calculate(float[] halfarr, int startindex) {
-        for (int i = 0; i < HALF; i++) {
-            float index = i + startindex;
+        for (int index = 0; index < HALF; index++) {
+            float tmpi = index + startindex;
             int l = halfarr.length;
-            halfarr[i] = (float) (halfarr[i] * Math.sin(0.2f + index / 5) * Math.cos(0.2f + index / 5) * Math.cos(0.4f + index / 2));
+            halfarr[index] = (float) (halfarr[index] * Math.sin(0.2f + tmpi / 5) * Math.cos(0.2f + tmpi / 5) * Math.cos(0.4f + tmpi / 2));
         }
     }
 }
