@@ -1,14 +1,11 @@
 package lesson13.homework;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 
 public class MainClass {
-    static final int CARS_COUNT = 4;
+    static final int CARS_COUNT = 6;
     static final CyclicBarrier cbStart = new CyclicBarrier(CARS_COUNT);
     static final CountDownLatch cdlForStart = new CountDownLatch(CARS_COUNT);
     static final CountDownLatch cdlForFinish = new CountDownLatch(CARS_COUNT);
