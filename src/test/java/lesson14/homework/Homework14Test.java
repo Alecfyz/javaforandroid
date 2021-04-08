@@ -52,6 +52,15 @@ class Homework14Test {
     }
 
     @ParameterizedTest
+    @MethodSource("dataset1")
+    void PTestcheckQuad1(Integer[] expresArr1, Integer[] srcArr){
+        Assertions.assertThrows(RuntimeException.class, () -> {
+            Assertions.assertArrayEquals(expresArr1, homework.checkQuad(srcArr));
+        });
+    }
+
+
+    @ParameterizedTest
     @MethodSource("dataset2")
     void paramTestcheckOneFourArr(boolean res, Integer[] srcArr) {
        Assertions.assertEquals(res, homework.checkOneFourArr(srcArr));
@@ -66,5 +75,7 @@ class Homework14Test {
                 Arguments.arguments(false, new Integer[]{4, 4, 1, 4, 1, 1, 1, 4, 1, 4, 2, 4})
         );
     }
+
+
 
 }

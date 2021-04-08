@@ -43,10 +43,7 @@ public class Homework14 {
                 result = resArr;
             }
 
-//            System.out.println(RED_BOLD + "-=== " + e.toString() + " ===-" + ANSI_RESET);
-
         if (result == null) result = new Integer[0];
-
         return result;
     }
 
