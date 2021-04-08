@@ -27,10 +27,11 @@ public class Homework14 {
         int newLen;
         ArrayList<Integer> al = new ArrayList<>(Arrays.asList(intarr));
         System.out.println(al.toString());
-        try {
+
             pos = al.lastIndexOf(4);
-            Integer tmpvar = intarr[pos];   // RAISE the exception!
-            tmpvar = null;                  // and free the memory
+            if (pos < 0) {
+                throw new RuntimeException("Нет четверок!");
+            }
             System.out.println("pos = " + pos);
             newLen = intarr.length - pos - 1;
             if (newLen <= 0) {
@@ -41,9 +42,9 @@ public class Homework14 {
                 System.arraycopy(intarr, pos + 1, resArr, 0, newLen);
                 result = resArr;
             }
-        } catch (RuntimeException e) {
-            System.out.println(RED_BOLD + "-=== " + e.toString() + " ===-" + ANSI_RESET);
-        }
+
+//            System.out.println(RED_BOLD + "-=== " + e.toString() + " ===-" + ANSI_RESET);
+
         if (result == null) result = new Integer[0];
 
         return result;
